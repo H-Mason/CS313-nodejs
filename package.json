@@ -10,6 +10,7 @@
   "author": "Heather Mason",
   "license": "ISC",
   "dependencies": {
+    "ejs": "^2.7.2",
     "express": "^4.17.1"
   }
 }
