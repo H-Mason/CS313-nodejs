@@ -2,3 +2,6 @@ body {
     background-color: azure;
     text-align: center;
 }
+.error {
+    color: red;
+}
