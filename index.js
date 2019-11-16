@@ -7,6 +7,7 @@ app.set('port', process.env.PORT || 5000)
    .get('/', function(req, res){
       res.sendFile('form.html', { root: __dirname + "/public"});
    })
+   .get('/calculate', calculate.calculatePostage)
    .listen(app.get('port'), function() {
     console.log('Listening on port: ' + app.get('port'));
  });
