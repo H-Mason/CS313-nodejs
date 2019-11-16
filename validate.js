@@ -63,4 +63,4 @@ function clearError() {
 window.onload = function() {
     document.getElementById("weight").addEventListener("change", validateWeight);
 }
-//module.exports = {validateWeight: validateWeight};
+module.exports = {validateWeight: validateWeight};
