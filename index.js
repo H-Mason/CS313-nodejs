@@ -10,7 +10,6 @@ app.set('port', process.env.PORT || 5000)
       res.sendFile('form.html', { root: __dirname + "/public"});
    })
    .get('/calculate', calculate.calculatePostage)
-   .get('/validate', validate.validateWeight)
    .listen(app.get('port'), function() {
     console.log('Listening on port: ' + app.get('port'));
  });
