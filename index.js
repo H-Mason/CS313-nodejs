@@ -1,6 +1,6 @@
 const express = require('express');
 var calculate = require('./calculate.js');
-var validate = require('./validate');
+//var validate = require('./public/validate');
 var app = express();
 app.set('port', process.env.PORT || 5000)
    .use(express.static(__dirname + '/public'))

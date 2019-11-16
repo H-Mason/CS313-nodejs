@@ -4,23 +4,24 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<title>Postal Rate Calculator</title>
-	<script src="/validate.js"></script>
+	<script src="validate.js"></script>
 	<link rel="stylesheet" type="text/css" href="css/style.css" />
 </head>
 <body>
     <h1>Postal Rate Calculator</h1>
-    <form action="/calculate" method="get" onsubmit="return validateWeight">
+    <form action="/calculate" method="get" onsubmit="return validateWeight()">
         Enter the item weight (in oz): 
 		<input type="text" name="weight" id="weight"><br>
-		<span id="errorMessage"></span>
+		<span class="error" id="errorMessage" style="display:none"></span><br>
         Select Mail Type: 
-		<select name="mail_type">
+		<select name="mail_type" id="mail_type">
 			<option value="stamped">Letters (Stamped)</option>
 			<option value="metered">Letters (Metered)</option>
             <option value="flats">Large Envelopes (Flats)</option>
             <option value="package">First-Class Package Service—Retail</option>
 		</select>
 
+		<br>
 		<br>
 		<input type="submit" value="Calculate">
 	</form>

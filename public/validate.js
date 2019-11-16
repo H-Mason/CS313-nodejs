@@ -28,7 +28,7 @@ function validateWeight() {
                 break;
             case 'flats':
                 if (weight > 13) {
-                    displayError("Large Flat Envelopes cannot be more than 3.5oz")
+                    displayError("Large Flat Envelopes cannot be more than 13oz")
                     return false;
                 }
                 else {
@@ -37,7 +37,7 @@ function validateWeight() {
                 break;
             case 'package':
                 if (weight > 13) {
-                    displayError("First Class Packages cannot be more than 3.5oz")
+                    displayError("First Class Packages cannot be more than 13oz")
                     return false;
                 }
                 else {
@@ -54,13 +54,17 @@ function validateWeight() {
 function displayError(errorMessage) {
     //put the passed in error into the span
     document.getElementById("errorMessage").innerHTML = errorMessage;
+    document.getElementById("errorMessage").style = "inline";
     document.getElementById("weight").focus();
 }
 function clearError() {
     document.getElementById("errorMessage").innerHTML = "";
 }
-
-window.onload = function() {
-    document.getElementById("weight").addEventListener("change", validateWeight);
+if (typeof window === 'undefined') {
+    global.window = {}
+  }
+window.onload = function(){
+    document.getElementById("weight").addEventListener("blur", validateWeight);
+    document.getElementById("mail_type").addEventListener("change", validateWeight);
 }
-module.exports = {validateWeight: validateWeight};
+//module.exports = {validateWeight: validateWeight};
