@@ -141,7 +141,7 @@ function getName(mail) {
 function calculatePostage(req, res) {
     var mail = req.query.mail_type;
     var weight = parseFloat(req.query.weight);
-    var price = getPrice(mail, weight);
+    var price = getPrice(mail, weight).toFixed(2);
     var mail_type = getName(mail);
     var results = {mail_type: mail_type, weight: weight, price: price};
     res.render('calculation', results);
