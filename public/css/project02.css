@@ -1,0 +1,148 @@
+body {
+    background-size: cover;
+    background-color: rgb(34, 128, 70);
+    background-image: url("mainBackground.jpg");
+    background-repeat: no-repeat;
+    font-family: verdana;
+ }
+ h1 {
+    width: 95vw;
+    text-align: center;
+    border-radius: 5px;
+    border-style: outset;
+    border-width: 1px;
+    padding: 10px;
+    margin: auto;
+    background-color: rgb(17, 88, 45);
+    color:  rgb(233, 233, 241);
+    text-shadow: 2px 2px #000000;
+ }
+ h2 {
+    width: 50vw;
+    text-align: center;
+    border-radius: 5px;
+    border-style: outset;
+    border-width: 1px;
+    padding: 10px;
+    margin: auto;
+    background-color: rgb(81, 165, 115);
+    color:  rgb(233, 233, 241);
+    text-shadow: 2px 2px #181818;
+ }
+ h3 {
+   text-align: center;
+ }
+ div {
+    width: 55vw;
+    text-align: center;
+    border-radius: 5px;
+    border-style: outset;
+    border-width: 1px;
+    padding: 10px;
+    margin: auto;
+    background-color: rgba(24, 100, 55, 0.75);
+    color:  rgb(233, 233, 241);
+ }
+
+ .directory {
+    display: inline-block;
+    border-style: outset;
+    border-color: #464545;
+    border-width: 1px;
+    padding: 1rem 2rem;
+    margin: 0;
+    text-decoration: none;
+    background-color: rgb(43, 139, 72);
+    color: white;
+    cursor: pointer;
+    text-align: center;
+    font-family: verdana;
+    font-size: 13pt;
+    transition: background 250ms ease-in-out, 
+                transform 150ms ease;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    margin: auto;
+    width: 25vw;
+ }
+ .directory:hover, 
+ .directory:focus {
+    background-color: rgb(121, 194, 133);
+    color: black;
+ }
+ ul {
+    list-style-type: none;
+    margin: auto;
+    padding: 0;
+    overflow: auto;
+    background-color: rgb(43, 139, 72);
+    width: 50vw;
+    text-align: center;
+    font-family: verdana;
+    font-size: 13pt;
+ }
+ 
+ li {
+    float: left;
+    margin: auto;
+    width: 25vw;
+ }
+ 
+ li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+ }
+ li a:hover {
+    background-color: rgb(121, 194, 133);
+    color: black;
+ }
+ img {
+    width: 40vw;
+    text-align: center;
+    margin: auto;
+    padding: 10px;
+ }
+ .desc {
+    width: 40vw;
+ }
+ #submit {
+    width: 15vw;
+    padding: 5px;
+ }
+ .input {
+    background-color: rgb(158, 228, 170);
+    font-family: verdana;
+    font-size: 11pt;
+ }
+ #directory {
+     width: 10vw;
+     padding: 5px;
+     text-align: center;
+     margin: auto;
+ }
+ textarea {
+    background-color: rgb(158, 228, 170);
+    font-family: verdana;
+    font-size: 11pt;
+ }
+ .tLeft {
+    text-align: right;
+ }
+ .tRight {
+    text-align: left;
+ }
+ input[type="file"]  {
+   color: black;
+   background-color: rgb(158, 228, 170);
+   font-family: verdana;
+   font-size: 11pt;
+   display: inline-block;
+   padding: 2px;
+   border-style: inset;
+   border-color: #464545;
+   border-width: 1px;
+   border-radius: 5px;
+} 
