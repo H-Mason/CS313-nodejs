@@ -1,9 +1,10 @@
 const express = require('express');
 var calculate = require('./calculate.js');
+var animalLookup = require('./animalLookup.js')
 require('dotenv').config();
 process.env["NODE_TLS_REJECT_UNAUTHORIZED"] = 0;
 const connectionString = process.env.DATABASE_URL;
-const { Pool } = require('pg')
+const { Pool } = require('pg');
 const pool = new Pool({connectionString: connectionString});
 var app = express();
 app.use(express.json());
