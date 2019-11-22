@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="project01.css">
+    <title>Mammals of North America</title>
+</head>
+<body>
+    <h1>Learn about Mammals!</h1>
+    <div>
+        <% for(var i=0; i < items.length; i++) {%>
+            <form action='/animalLookup' method='post'><span id='Logo' style='display:none'>
+            <input type='radio' checked name='input' value='<%=items[i]%>'></span>
+            <input type='submit' name='byName' class='directory' value='<%=items[i]%>'></form>");
+        <% } %>
+    </div>
+</body>
