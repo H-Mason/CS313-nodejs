@@ -20,8 +20,6 @@ function getAllAnimals(req, res) {
        if (err || result == null) {
           res.status(500).json({success: false, data: err});
        } else {
-          const animals = result;
-          //res.status(200).json(animals);
           res.render('viewAllAnimals',{list : result} );
        }
     });

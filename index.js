@@ -19,6 +19,9 @@ app.set('port', process.env.PORT || 5000)
    .get('/postal', function(req, res){
       res.sendFile('form.html', { root: __dirname + "/public"});
    })
+   .get('/movies', function(req, res){
+      res.sendFile('movies.html', { root: __dirname + "/public"});
+   })
    .get('/calculate', calculate.calculateRate)
    .get('/getAnimals', animalLookup.getAnimals)
    .get('/allAnimals', animalLookup.getAllAnimals)
