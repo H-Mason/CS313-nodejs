@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type ="text/css" href="css/project02.css">
+  <title>Mammals of North America</title>
+</head>
+<body>
+    <h1>Learn about Mammals!</h1>
+    <div>
+        Animal name: <%= animal_name %> <br>
+        Species: <%= scientific_name %> <br>
+        Genus: <%= genus %> <br>
+        Family: <%= family %> <br>
+        Order: <%= a_order %> <br>
+        Diet: <%= diet %> <br>
+        Size: <%= size %> <br>
+        <!-- <img src=\'../project1Data/' . $row['picture'] . '\'<br>'); -->
+        <!-- $descFile = '../project1Data/' . $row['description'];
+        $desc = fopen($descFile, "r") or die("Unable to open file!");
+        print('<div class=\'desc\'>' . fread($desc,filesize($descFile)) . '</div><br>');
+        fclose($desc);
+        $descFile = '../project1Data/' . $row['size_description'];
+        $desc = fopen($descFile, "r") or die("Unable to open file!");
+        print('<div class=\'desc\'>' . fread($desc,filesize($descFile)) . '</div><br>');
+        fclose($desc);
+        print('<img src=\'../project1Data/' . $row['region'] . '\'<br>'); -->
+    </div>
+</body>

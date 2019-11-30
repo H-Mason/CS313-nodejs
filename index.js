@@ -25,6 +25,20 @@ app.set('port', process.env.PORT || 5000)
    .get('/calculate', calculate.calculateRate)
    .get('/getAnimals', animalLookup.getAnimals)
    .get('/allAnimals', animalLookup.getAllAnimals)
+   .get('/byName', function(req, res){
+      res.sendFile('enterName.html', { root: __dirname + "/public"});
+   })
+   .get('/bySize', animalLookup.bySize)
+   .get('/byGenus', animalLookup.byGenus)
+   .get('/byOrder', animalLookup.byOrder)
+   .get('/byFamily', animalLookup.byFamily)
+   .get('/byDiet', animalLookup.byDiet)
+   .get('/getAnimalByName', animalLookup.getAnimalByName)
+   .get('/getAnimalsBySize', animalLookup.getAnimalsBySize)
+   .get('/getAnimalsByGenus', animalLookup.getAnimalsByGenus)
+   .get('/getAnimalsByOrder', animalLookup.getAnimalsByOrder)
+   .get('/getAnimalsByFamily', animalLookup.getAnimalsByFamily)
+   .get('/getAnimalsByDiet', animalLookup.getAnimalsByDiet)
    .listen(app.get('port'), function() {
     console.log('Listening on port: ' + app.get('port'));
  });
