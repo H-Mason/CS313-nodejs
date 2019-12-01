@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type ="text/css" href="css/project02.css">
+  <title>Mammals of North America</title>
+</head>
+<body>
+    <h1>Learn about Mammals!</h1>
+    <div>
+        <form action='animalLookup.php' method='post' id='inputForm'>");
+        Order: <select class='input' name='input'>");
+        foreach($db->query("SELECT order_name FROM a_order") as $row)
+        {
+            print("<option value='" . $row['order_name'] . "'>" . $row['order_name'] . "</option>");
+        }
+        </select><br><br>");
+        <input type='submit' class='directory' id='submit' name='byOrder' value='Search'>");
+        </form>
+</div>
+</body>

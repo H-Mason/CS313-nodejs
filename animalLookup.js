@@ -71,7 +71,7 @@ function byDiet(req, res) {
 function getAnimalByName(req, res) {
 	const name = req.query.input;
 	console.log("The animal requested is: " + name);
-	getAnimalsFromName(name, function(err, result) {
+	getAnimalFromName(name, function(err, result) {
 		if (err || result == null) {
 		    res.status(500).json({success: false, data: err});
 		} else {
@@ -82,7 +82,16 @@ function getAnimalByName(req, res) {
 	 });
 }
 function getAnimalsBySize(req, res) {
-
+	const size = req.query.input;
+	console.log("The size requested is: " + size);
+	getAnimalsFromSize(size, function(err, result) {
+		if (err || result == null) {
+		    res.status(500).json({success: false, data: err});
+		} else {
+		  	//res.status(200).json(result);
+		    res.render('viewAnimalsFromSize', {list : result});
+		}
+	 });
 }
 function getAnimalsByGenus(req, res) {
 
@@ -132,6 +141,17 @@ function getAllAnimalsFromDb(callback) {
 	});
 }
 function getSizes(callback) {
+	console.log("Getting all size from DB");
+   const sql = "SELECT size FROM size";
+	pool.query(sql, function(err, result) {
+		if (err) {
+			console.log("Error in query: ")
+			console.log(err);
+			callback(err, null);
+		}
+		console.log("Found result: " + JSON.stringify(result.rows));
+		callback(null, result.rows);
+	});
 }
 function getGenus(callback) {
 }
@@ -141,7 +161,7 @@ function getOrders(callback) {
 }
 function getDiets(callback) {
 }
-function getAnimalsFromName(name, callback) {
+function getAnimalFromName(name, callback) {
 	console.log("Getting named animal from DB");
    	const sql = "SELECT animals.animal_name," +
 						"animals.picture," +
@@ -171,7 +191,23 @@ function getAnimalsFromName(name, callback) {
 		callback(null, result.rows);
 	});
 }
-function getAnimalsFromSize(callback) {
+function getAnimalsFromSize(size, callback) {
+	console.log("Getting animals from DB using size");
+	const sql = "SELECT animals.animal_name, " +
+						"animals.size_description, " +
+						"size.size AS size " +
+				"FROM   animals " +
+				"JOIN   size on size.size_id = animals.size_id " +
+				"WHERE  size.size = '" + size + "'";
+	pool.query(sql, function(err, result) {
+		if (err) {
+			console.log("Error in query: ")
+			console.log(err);
+			callback(err, null);
+		}
+		console.log("Found result: " + JSON.stringify(result.rows));
+		callback(null, result.rows);
+	});
 }
 function getAnimalsFromGenus(callback) {
 }
