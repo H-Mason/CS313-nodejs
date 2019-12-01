@@ -10,7 +10,7 @@
     <h1>Learn about Mammals!</h1>
     <div>
         <% for(var i=0; i < list.length; i++) {%>
-            <form action='/animalLookup' method='get'><span id='Logo' style='display:none'>
+            <form action='/getAnimalByName' method='get'><span id='Logo' style='display:none'>
             <input type='radio' checked name='input' value='<%=list[i].animal_name %>'></span>
             <input type='submit' name='byName' class='directory' value='<%=list[i].animal_name %>'></form>
         <% } %>
