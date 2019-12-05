@@ -9,14 +9,16 @@
 <body>
     <h1>Learn about Mammals!</h1>
     <div>
-            print("<form action='animalLookup.php' method='post' id='inputForm'>");
-                    print("Family: <select class='input' name='input'>");
-                    foreach($db->query("SELECT family FROM family") as $row)
-                    {
-                        print("<option value='" . $row['family'] . "'>" . $row['family'] . "</option>");
-                    }
-                    print("</select><br><br>");
-                    print("<input type='submit' class='directory' id='submit' name='byFamily' value='Search'>");
-                    print("</form>");
+      <form action='/getAnimalsByFamily' method='GET' id='inputForm'>
+          Family: <select class='input' name='input'>
+              <% for(var i=0; i < list.length; i++) {%>
+                <option value='<%=list[i].family %>'><%=list[i].family %></option>
+              <% } %>
+          </select><br><br>
+          <input type='submit' class='directory' id='submit' name='byGenus' value='Search'>
+        </form>
+    </div>
+    <div>
+        <a href='/'><ul class='directory'>Return Home</ul></a>
     </div>
 </body>
