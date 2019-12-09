@@ -1,7 +1,7 @@
 body {
     background-size: cover;
     background-color: rgb(34, 128, 70);
-    background-image: url("mainBackground.jpg");
+    background-image: url("../images/mainBackground.jpg");
     background-repeat: no-repeat;
     font-family: verdana;
  }
