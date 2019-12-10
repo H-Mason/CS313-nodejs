@@ -16,7 +16,7 @@
         Order: <%= a_order %> <br>
         Diet: <%= diet %> <br>
         Size: <%= size %> <br>
-        <!-- <img src=\'../project1Data/' . $row['picture'] . '\'<br>'); -->
+        <img src='/images/<%= picture %>'><br>
         <!-- $descFile = '../project1Data/' . $row['description'];
         $desc = fopen($descFile, "r") or die("Unable to open file!");
         print('<div class=\'desc\'>' . fread($desc,filesize($descFile)) . '</div><br>');
@@ -24,8 +24,8 @@
         $descFile = '../project1Data/' . $row['size_description'];
         $desc = fopen($descFile, "r") or die("Unable to open file!");
         print('<div class=\'desc\'>' . fread($desc,filesize($descFile)) . '</div><br>');
-        fclose($desc);
-        print('<img src=\'../project1Data/' . $row['region'] . '\'<br>'); -->
+        fclose($desc); -->
+        <img src='/images/<%= region %>'><br>
     </div>
     <div>
         <a href='/'><ul class='directory'>Return Home</ul></a>

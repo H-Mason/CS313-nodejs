@@ -135,7 +135,8 @@ function getAnimalsBySize(req, res) {
 		if (err || result == null) {
 		    res.status(500).json({success: false, data: err});
 		} else {
-		  	//res.status(200).json(result);
+			  //res.status(200).json(result);
+			
 		    res.render('viewAnimalsFromSize', {list : result});
 		}
 	 });
@@ -144,7 +145,8 @@ function getAnimalsFromSize(size, callback) {
 	console.log("Getting animals from DB using size");
 	const sql = "SELECT animals.animal_name, " +
 						"animals.size_description, " +
-						"size.size AS size " +
+						"size.size AS size, " +
+						"animals.picture " +
 				"FROM   animals " +
 				"JOIN   size on size.size_id = animals.size_id " +
 				"WHERE  size.size = '" + size + "'";
