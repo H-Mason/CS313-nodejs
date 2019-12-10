@@ -16,8 +16,7 @@
                     if(rawFile.status === 200 || rawFile.status == 0)
                     {
                         var allText = rawFile.responseText;
-                        //alert(allText);
-                        theDiv.innerHTML = allText;
+                        div.innerHTML = allText;
                     }
                 }
             }
@@ -31,20 +30,18 @@
         <% for(var i=0; i < list.length; i++) {%>
             Animal name: <%=list[i].animal_name %> <br>
             <img src='/images/<%= list[i].picture %>'><br>
-            <!-- <%= list[i].size_description %> -->
-            <div class='desc' id='<%= list[i].size_description %>'></div> 
+            <div class='desc' id='<%= list[i].size_description %>'></div>
+            <div class='desc' id='<%= list[i].description %>'></div> 
             <script>
-                var theFile = '../text/<%= list[i].size_description %>'
-                var theDiv = document.getElementById('<%= list[i].size_description %>');
+                var sizeFile = '../text/<%= list[i].size_description %>'
+                var sizeDiv = document.getElementById('<%= list[i].size_description %>');
                 
-                readTextFile(theFile, theDiv);
-            </script>
-                      
-                <!-- stuff to print out descriptions
-                $descFile = '../project1Data/' . $row['size_description'];
-                $desc = fopen($descFile, "r") or die("Unable to open file!");
-                print('<div class=\'desc\'>' . fread($desc,filesize($descFile)) . '</div><br>');
-                fclose($desc); -->
+                readTextFile(sizeFile, sizeDiv);
+                var descFile = '../text/<%= list[i].description %>'
+                var descDiv = document.getElementById('<%= list[i].description %>');
+                
+                readTextFile(descFile, descDiv);
+            </script><br>
         <% } %>
         <br>
         <a href='/'><ul class='directory'>Return Home</ul></a>

@@ -5,6 +5,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" type ="text/css" href="css/project02.css">
   <title>Mammals of North America</title>
+  <script>
+        function readTextFile(file, div){
+            var rawFile = new XMLHttpRequest();
+            rawFile.open("GET", file, false);
+            rawFile.onreadystatechange = function ()
+            {
+                if(rawFile.readyState === 4)
+                {
+                    if(rawFile.status === 200 || rawFile.status == 0)
+                    {
+                        var allText = rawFile.responseText;
+                        div.innerHTML = allText;
+                    }
+                }
+            }
+            rawFile.send(null);
+        }
+    </script>
 </head>
 <body>
     <h1>Learn about Mammals!</h1>
@@ -13,11 +31,12 @@
         Animal name: <%=list[i].animal_name %> <br>
         Family: <%=list[i].family %><br>
         Order: <%=list[i].a_order %><br>
-            <!-- stuff to print out descriptions
-            $descFile = '../project1Data/' . $row['size_description'];
-            $desc = fopen($descFile, "r") or die("Unable to open file!");
-            print('<div class=\'desc\'>' . fread($desc,filesize($descFile)) . '</div><br>');
-            fclose($desc); -->
+            <div class='desc' id='<%= list[i].description %>'></div> 
+            <script>
+                var descFile = '../text/<%= list[i].description %>'
+                var descDiv = document.getElementById('<%= list[i].description %>');                
+                readTextFile(descFile, descDiv);
+            </script><br>
         </div>
     <% } %>
     <div>

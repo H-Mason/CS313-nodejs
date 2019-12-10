@@ -145,6 +145,7 @@ function getAnimalsFromSize(size, callback) {
 	console.log("Getting animals from DB using size");
 	const sql = "SELECT animals.animal_name, " +
 						"animals.size_description, " +
+						"animals.description," +
 						"size.size AS size, " +
 						"animals.picture " +
 				"FROM   animals " +

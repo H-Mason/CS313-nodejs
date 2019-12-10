@@ -5,6 +5,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" type ="text/css" href="css/project02.css">
   <title>Mammals of North America</title>
+  <script>
+        function readTextFile(file, div){
+            var rawFile = new XMLHttpRequest();
+            rawFile.open("GET", file, false);
+            rawFile.onreadystatechange = function ()
+            {
+                if(rawFile.readyState === 4)
+                {
+                    if(rawFile.status === 200 || rawFile.status == 0)
+                    {
+                        var allText = rawFile.responseText;
+                        div.innerHTML = allText;
+                    }
+                }
+            }
+            rawFile.send(null);
+        }
+    </script>
 </head>
 <body>
     <h1>Learn about Mammals!</h1>
@@ -17,14 +35,18 @@
         Diet: <%= diet %> <br>
         Size: <%= size %> <br>
         <img src='/images/<%= picture %>'><br>
-        <!-- $descFile = '../project1Data/' . $row['description'];
-        $desc = fopen($descFile, "r") or die("Unable to open file!");
-        print('<div class=\'desc\'>' . fread($desc,filesize($descFile)) . '</div><br>');
-        fclose($desc);
-        $descFile = '../project1Data/' . $row['size_description'];
-        $desc = fopen($descFile, "r") or die("Unable to open file!");
-        print('<div class=\'desc\'>' . fread($desc,filesize($descFile)) . '</div><br>');
-        fclose($desc); -->
+        <div class='desc' id='<%= description %>'></div> 
+        <div class='desc' id='<%= size_description %>'></div>
+        <script>
+            var sizeFile = '../text/<%= size_description %>'
+            var sizeDiv = document.getElementById('<%= size_description %>');
+            
+            readTextFile(sizeFile, sizeDiv);
+            var descFile = '../text/<%= description %>'
+            var descDiv = document.getElementById('<%= description %>');
+            
+            readTextFile(descFile, descDiv);
+        </script><br>
         <img src='/images/<%= region %>'><br>
     </div>
     <div>
