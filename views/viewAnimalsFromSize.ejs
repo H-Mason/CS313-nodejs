@@ -5,7 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" type ="text/css" href="css/project02.css">
   <title>Mammals of North America</title>
-  
+  <script>var x;
+        x = new XMLHttpRequest()
+
+       function getdata(file) {
+           theFile = "/text/" + file;
+           x.open('get', theFile, true); 
+           x.onreadystatechange = showdata;
+           x.send(null);
+       }
+
+       function showdata(file) {
+           if(x.readyState==4) {
+           var el = document.getElementById('file');
+           el.innerHTML = x.responseText;
+           }
+       }</script>
 </head>
 <body>
     <h1>Learn about Mammals!</h1>
@@ -13,49 +28,25 @@
         <% for(var i=0; i < list.length; i++) {%>
             Animal name: <%=list[i].animal_name %> <br>
             <img src='/images/<%= list[i].picture %>'><br>
-            <div class='desc' id='list[i].size_description'></div>
             <script>
-                var theFile = '/text/<%= list[i].size_description %>';
-                var fileDisplayArea = document.getElementById('list[i].size_description');
-                function readTextFile(file)
-                {
-                    var rawFile = new XMLHttpRequest();
-                    rawFile.open("GET", file, false);
-                    rawFile.onreadystatechange = function ()
-                    {
-                        if(rawFile.readyState === 4)
-                        {
-                            if(rawFile.status === 200 || rawFile.status == 0)
-                            {
-                                var allText = rawFile.responseText;
-                                fileDisplayArea.innerText = allText 
-                            }
-                        }
-                    }
-                    rawFile.send(null);
-                }
-                readTextFile(theFile);
+                getdata('<%= list[i].size_description %>');
+                showdata('<%= list[i].size_description %>');
+                //var theFile = '/text/<%= list[i].size_description %>';
+                //var fileDisplayArea = document.getElementById('<%= list[i].size_description %>');
+                              
                 // console.log(theFile);
-                // theFile.addEventListener('load', function(e) {
-                //     var file = theFile.files[0];
+                //theFile.addEventListener('load', function(e) {
+                    // var file = theFile;
                    
-                //         var reader = new FileReader();
+                    //     var reader = new FileReader();
 
-                //         reader.onload = function(e) {
-                //             fileDisplayArea.innerText = reader.result;
-                //         }
-                //         reader.readAsText(file);    
-                // });
+                    //     reader.onload = function(e) {
+                    //         fileDisplayArea.innerText = reader.result;
+                    //     }
+                    //     reader.readAsText(file);    
+                //});
             </script>
-            <!-- <script>
-                
-                fs.readFile('/text/<%= list[i].size_description %>', (err, data) => { 
-                    if (err) throw err; 
-  
-                    console.log("data found: " + data.toString()); 
-                }) 
-            </script> -->
-           
+            <div class='desc' id='<%= list[i].size_description %>'></div>           
                 <!-- stuff to print out descriptions
                 $descFile = '../project1Data/' . $row['size_description'];
                 $desc = fopen($descFile, "r") or die("Unable to open file!");
